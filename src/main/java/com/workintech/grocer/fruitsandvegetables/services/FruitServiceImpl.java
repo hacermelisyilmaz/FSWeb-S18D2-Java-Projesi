@@ -2,7 +2,9 @@ package com.workintech.grocer.fruitsandvegetables.services;
 
 import com.workintech.grocer.fruitsandvegetables.dao.FruitRepository;
 import com.workintech.grocer.fruitsandvegetables.entity.Fruit;
+import com.workintech.grocer.fruitsandvegetables.exceptions.FruitAndVegetableException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,8 +33,7 @@ public class FruitServiceImpl implements FruitService {
     public Fruit findById(Integer id) {
         Optional<Fruit> fruitOptional = fruitRepository.findById(id);
         if (fruitOptional.isPresent()) return fruitOptional.get();
-        //TODO MELIS throw exception
-        return null;
+        throw new FruitAndVegetableException("Fruit with the given ID is not found: " + id, HttpStatus.BAD_REQUEST);
     }
 
     @Override
