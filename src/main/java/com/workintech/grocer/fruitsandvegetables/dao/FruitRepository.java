@@ -9,4 +9,7 @@ import java.util.List;
 public interface FruitRepository extends JpaRepository<Fruit, Integer> {
     @Query("SELECT f FROM Fruit f ORDER BY f.price ASC")
     List<Fruit> sortByPrice();
+
+    @Query("SELECT f FROM Fruit f WHERE f.firstName LIKE %:name%")
+    List<Fruit> searchByFirstName(String name);
 }
