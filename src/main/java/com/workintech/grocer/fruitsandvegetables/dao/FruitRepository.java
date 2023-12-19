@@ -13,6 +13,6 @@ public interface FruitRepository extends JpaRepository<Fruit, Integer> {
     @Query("SELECT f FROM Fruit f ORDER BY f.price DESC")
     List<Fruit> sortDescByPrice();
 
-    @Query("SELECT f FROM Fruit f WHERE f.firstName LIKE %:name%")
+    @Query("SELECT f FROM Fruit f WHERE f.name LIKE %:name%")
     List<Fruit> searchByName(String name);
 }
