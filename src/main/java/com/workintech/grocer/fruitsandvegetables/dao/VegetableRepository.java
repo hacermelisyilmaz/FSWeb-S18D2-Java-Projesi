@@ -8,8 +8,11 @@ import java.util.List;
 
 public interface VegetableRepository extends JpaRepository<Vegetable, Integer> {
     @Query("SELECT v FROM Vegetable v ORDER BY v.price ASC")
-    List<Vegetable> sortByPrice();
+    List<Vegetable> sortAscByPrice();
+
+    @Query("SELECT v FROM Vegetable v ORDER BY v.price DESC")
+    List<Vegetable> sortDescByPrice();
 
     @Query("SELECT v FROM Vegetable v WHERE v.firstName LIKE %:name%")
-    List<Vegetable> searchByFirstName(String name);
+    List<Vegetable> searchByName(String name);
 }
