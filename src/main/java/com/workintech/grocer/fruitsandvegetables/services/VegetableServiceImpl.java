@@ -3,10 +3,12 @@ package com.workintech.grocer.fruitsandvegetables.services;
 import com.workintech.grocer.fruitsandvegetables.dao.VegetableRepository;
 import com.workintech.grocer.fruitsandvegetables.entity.Vegetable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class VegetableServiceImpl implements VegetableService {
     private VegetableRepository vegetableRepository;
 
